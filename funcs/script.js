@@ -57,7 +57,7 @@ String.prototype.myIncludes = function (searchString, position) {
     }
 };
 
-Array.prototype.reducer = function (array, callback, initialValue){
+Array.prototype.myReduce = function (array, callback, initialValue){
     let i, result = initialValue;
     for(i = 0; i < array.length; i++){
         result = callback(result, array[i], i, array)  
@@ -65,5 +65,31 @@ Array.prototype.reducer = function (array, callback, initialValue){
         return result;
     };
 
+String.prototype.myRepeat = function(count){
+    let result = new String;
+    for(let i = 1; i <= count; i++) {
+        result += this  
+    }
+    return result
+}
 
+String.prototype.mySlice = function(beginIndex, endIndex){
+    if(beginIndex === undefined) beginIndex = 0;
+    if(beginIndex < 0) beginIndex = this.length + beginIndex;
+    if(endIndex === undefined) endIndex = this.length;
+    if(endIndex < 0 ) endIndex = beginIndex - endIndex;
+    if(beginIndex >= this.length) return '';
 
+    let buff = new String;
+    for(let i = beginIndex; i < endIndex; i++){
+        buff += this[i];
+    }
+    return buff
+};
+
+String.prototype.myTrim = function(){
+  
+}
+var greeting = '   Hello world!   ';
+
+console.log(greeting.myTrim());
