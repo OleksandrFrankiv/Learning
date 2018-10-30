@@ -57,5 +57,13 @@ String.prototype.myIncludes = function (searchString, position) {
     }
 };
 
+Array.prototype.reducer = function (array, callback, initialValue){
+    let i, result = initialValue;
+    for(i = 0; i < array.length; i++){
+        result = callback(result, array[i], i, array)  
+        }
+        return result;
+    };
+
 
 
